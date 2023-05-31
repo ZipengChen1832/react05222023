@@ -101,6 +101,7 @@ if (true) {
     // console.log(b) will give error
     if (true) {
       const b = "b";
+      console.log(a)
       // 3rd scope
     }
   }
@@ -111,3 +112,4 @@ if (true) {
 
 // shawllow copy vs deep copy
 // functions, closures, currying, conditional operator
+// OOP
