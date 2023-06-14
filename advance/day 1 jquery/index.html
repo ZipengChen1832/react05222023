@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <style>
+      #banner-message {
+        display: none;
+      }
+
+      .red {
+        background-color: red;
+      }
+    </style>
+
+    <h1 class="title">hello world</h1>
+    <h2 class="subtitle">author</h2>
+
+    <div id="banner-message">banner welcom</div>
+    <div id="button-container">
+      <button>button inside container</button>
+    </div>
+    <button class="btn">1</button>
+    <button class="btn">2</button>
+    <button class="btn">3</button>
+    <button class="btn">4</button>
+    <button class="btn">5</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script>
+      class MyQuery {
+        constructor(query) {
+          this.elements = document.querySelectorAll(query);
+        }
+        html(innerHTML) {
+          this.elements.forEach((element) => {
+            element.innerHTML = innerHTML;
+          });
+          return this;
+        }
+        on(type, handler) {
+          this.elements.forEach((element) => {
+            element.addEventListener(type, handler);
+          });
+          return this;
+        }
+        show() {
+          this.elements.forEach((element) => {
+            elementstyle.display = "block";
+          });
+          return this;
+        }
+        hide() {
+          this.elements.forEach((element) => {
+            element.style.display = "none";
+          });
+          return this;
+        }
+        addClass(className) {
+          this.elements.forEach((element) => {
+            element.classList.add(className);
+          });
+          return this;
+        }
+      }
+
+      const $$ = (query) => new MyQuery(query);
+      $$.ajax = (config) => {};
+
+      const button = $$("#button-container button")
+        .html("button")
+        .on("click", function (event) {
+          console.log("clicked");
+        });
+
+      const title = $$("h1.title").html("Hello World");
+      const subtitle = $$("h2.subtitle").html("by author");
+
+      // $$(".btn").addClass("red");
+    </script>
+  </body>
+</html>
